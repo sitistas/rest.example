@@ -24,7 +24,7 @@ public class ProductController {
 
     private static final Logger log = LoggerFactory.getLogger( ProductController.class);
 
-    @ApiOperation(value = "Retrieves all Products", notes = "This operation retrieves all Product entities. ", response
+    @ApiOperation(value = "Retrieves all products", notes = "This operation retrieves all Product entities. ", response
             = Product.class)
     @ApiResponses(value = { @ApiResponse(code = 200, message = "Success", response = Product.class),
             @ApiResponse(code = 400, message = "Bad Request", response = Error.class),
