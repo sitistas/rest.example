@@ -22,21 +22,18 @@ public class CategoryService implements ICategoryService {
 
     int ix = 10;
 
-
     public CategoryService() {
         super();
 
-// categories.add( new Category(1, "TV")); 
-// categories.add( new Category(2, "Electronics")); 
-// categories.add( new Category(3, "Home & Kitchen")); 
+        // categories.add( new Category(1, "TV"));
+        // categories.add( new Category(2, "Electronics"));
+        // categories.add( new Category(3, "Home & Kitchen"));
     }
 
     @Override
     public List<Category> findAll() {
         return categories;
     }
-
-
 
     @Override
     public Category findById(int id) {
@@ -50,28 +47,28 @@ public class CategoryService implements ICategoryService {
 
     @Override
     public Category addCategory(Category catToAdd) {
-        ix = ix +1; //increase product index
+        ix = ix + 1; // increase product index
         Category c = new Category(ix, catToAdd.getName());
         for (Product p : catToAdd.getProducts()) {
             Product productToAdd = productService.findById(p.getId());
-            if ( productToAdd != null ) {
+            if (productToAdd != null) {
                 c.getProducts().add(productToAdd);
             }
 
         }
-        categories.add( c );
+        categories.add(c);
         return c;
     }
 
     @Override
     public Category editCategory(Category catToAdd) {
-        Category editCat = findById( catToAdd.getId() );
+        Category editCat = findById(catToAdd.getId());
         editCat.getProducts().clear();
-        if ( editCat != null ) {
-            editCat.setName( catToAdd.getName() );
+        {
+            editCat.setName(catToAdd.getName());
             for (Product p : catToAdd.getProducts()) {
                 Product productToAdd = productService.findById(p.getId());
-                if ( productToAdd != null ) {
+                if (productToAdd != null) {
                     editCat.getProducts().add(productToAdd);
                 }
 
@@ -79,7 +76,6 @@ public class CategoryService implements ICategoryService {
 
             return editCat;
         }
-        return null;
     }
 
     @Override
@@ -94,4 +90,4 @@ public class CategoryService implements ICategoryService {
 
     }
 
-} 
+}
