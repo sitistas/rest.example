@@ -40,9 +40,8 @@ public class CategoryController {
             RequestMethod.GET)
     public List<Category> getCategory() {
         // finds all the categorys
-        List<Category> categorys = categoryService.findAll();
         // returns the category list
-        return categorys;
+        return categoryService.findAll();
     }
 
     @ApiOperation(value = "Retrieves a Category by ID", notes = "This operation retrieves a Category entity. ", response
@@ -61,8 +60,7 @@ public class CategoryController {
                                              int id) {
 
         log.info( String.format( "Will return category with id %s" , id) );
-        Category category = categoryService.findById(id);
-        return category;
+        return categoryService.findById(id);
     }
 
     @ApiOperation(value = "Deletes a Category by ID", notes = "This operation retrieves a Category entity. ", response =
@@ -85,10 +83,10 @@ public class CategoryController {
 
 
             log.info( String.format( "Will delete object with id %s" , id) );
-            return new ResponseEntity<Void>( categoryService.deleteCategory(id), HttpStatus.OK);
+            return new ResponseEntity<>(categoryService.deleteCategory(id), HttpStatus.OK);
         } catch (Exception e) {
             log.error("Couldn't serialize response for content type application/json", e);
-            return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -110,7 +108,7 @@ public class CategoryController {
 
         log.info( "Will add a new category" );
         Category category = categoryService.addCategory(p);
-        return new ResponseEntity<Category>( category, HttpStatus.OK);
+        return new ResponseEntity<>(category, HttpStatus.OK);
     }
 
 
@@ -132,7 +130,7 @@ public class CategoryController {
 
 
         Category category = categoryService.editCategory(body);
-        return new ResponseEntity<Category>( category, HttpStatus.OK);
+        return new ResponseEntity<>(category, HttpStatus.OK);
     }
 
 }

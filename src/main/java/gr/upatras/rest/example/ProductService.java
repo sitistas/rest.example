@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class ProductService implements IProductService {
 
     // creating an object of ArrayList
-    List<Product> products = new ArrayList<Product>();
+    List<Product> products = new ArrayList<>();
 
     int ix = 1000;
     /**
